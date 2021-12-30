@@ -32,9 +32,7 @@ function same(arr1, arr2) {
   return true;
 }
 
-
-// optimal solution uses 3 separate loops and has time complexity O(n)
-
+// optimal solution uses 3 separate loops and has time complexity of 3n, which simplifies to O(n)
 function sameLinear(arr1, arr2) {
   // check lengths
   if (arr1.length !== arr2.length) {
