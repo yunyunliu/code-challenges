@@ -1,0 +1,43 @@
+Problem-solving patterns
+
+1. frequency counter pattern
+Use objects {} or sets (data structure) to collect values or the frequencies of values
+
+2. Multiple pointers pattern
+Create one or more pointers/variables that reference an index/position along a linear, list-like data structure (linked list, array, string, etc). Pointers keep track of movement based on some condition along the list
+Also has minimal space complexity
+
+3.  sliding window pattern
+create a window (can be variable/array/string depending on problem) representing a subset of some linear (eg array, string, range of numbers, etc).
+depending on conditions, window increases/decreases or closes and a new window created
+usually window moves from left to right (ie beginning to end of array/string)
+use for keeping track of a subset of data in array, string,etc
+example: finding the longest series of unique characters in a string
+
+Problem solving approach/process
+
+1. understand the problem - be sure to ask clarifying questions
+    - restate the problem in your own words
+    - what are the inputs, how many? what type? what happens if there is a null or empty input?
+    - what are the outputs
+    - what are the edge cases
+    - can the outputs be determined from the inputs? is there sufficient information provided to solve the problem
+    - what kind of label to give to important pieces of data in the problem; terminology
+      - what pieces of data are important in finding a solution, what are they called ie sum, frequency, average, sorted
+      - using the right labels for these pieces of data can help you think about the problem
+2. explore concrete examples
+    - make sure you have sample inputs and outputs
+    - what is the simplest possible case/example?
+      - start with simplest case, then think about more complex examples and edge cases (ie empty or invalid inputs)
+    - trace through step by step one or more of the inputs to make sure you understand the problem
+3. break it down
+    - explicity write down the steps you need to take to get from input to output
+      - very high-level pseudo code without any code or code terminology
+    - trace through step-by-step what you just wrote using one or more of the sample inputs to make sure you get to right output
+      - write it out and follow each step
+    - if following the steps gets the right output, start filling in previous pseudo-code with lower-level implementation/coding details
+    - go through pseudo-code at lowest-level, so one line of pseudocode for each line of code
+      - you should be able to follow your pseudocode line-by-line to write the code for the solution
+4. solve and if you can simplify
+5. review and refactor
+  - think about time and space complexities
