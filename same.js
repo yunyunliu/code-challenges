@@ -1,3 +1,4 @@
+// problem that can be solved using frequency counter pattern
 const assert = require('assert');
 
 // function which accepts 2 arrays,

@@ -1,4 +1,5 @@
 const assert = require('assert');
+// a problem that can be solved using frequency counter pattern
 // given 2 strings, write a function that determines if second string is anagram of first string
 // anagram: word/phrase formed by rearranging the letters of another word/phrase
 // examples:

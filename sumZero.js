@@ -1,3 +1,4 @@
+// example of the type of problems that can be solved using multiple pointer pattern
 // Given a sorted (lowest to highest) array of integers, find the first pair of integers where the sum is 0.
 // Return an array containing the pair of integers that meet the condition or undefined if there isn’t one
 // ex:
