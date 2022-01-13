@@ -40,7 +40,7 @@ function validAnagram(str1, str2) {
   for (let char of str2) {
     count2[char] = count2[char]++ || 1;
   }
-  for (let key in count1) {
+  for (let key in count1) { // in operator is constant time/doesn't involve iterating through all keys
     if (!(key in count2) || count1[key] !== count2[key]) {
       return false;
     }

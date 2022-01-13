@@ -14,6 +14,11 @@ usually window moves from left to right (ie beginning to end of array/string)
 use for keeping track of a subset of data in array, string,etc
 example: finding the longest series of unique characters in a string
 
+4. divide and conquer method
+dividing a data set (array, tree, etc) into smaller subsets, eliminate subsets or find solutions for them to arrive at a solution for the whole
+examples of solutions using divide and conquer pattern: quicksort, merge sort, binary search
+
+
 Problem solving approach/process
 
 1. understand the problem - be sure to ask clarifying questions
