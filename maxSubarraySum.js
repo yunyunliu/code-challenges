@@ -13,7 +13,7 @@
 
   // initialize variable max for storing largest sum to 0
   // loop through array until you can't make any more sets of n elements/numbers
-  // the find this: arr.length - 1 - n is the index when there are still n numbers left in array; the number
+  // to find this: arr.length - n is the index when there are still n numbers left in array; the number
   // we're looking for is 1 more than that since that is the index where there are no more groups of n elements left in array
   // therefore exit condition of loop is arr.length - n + 1
   // inside this loop, use another loop to get sum of n numbers (starting with current index)
@@ -66,7 +66,7 @@ function maxSubarraySum2(arr, n) {
   if (n > arr.length) { // if there aren't at least n elements in the array, you can't do anything
     return null;
   }
-  let max = 0;
+  let max = -Infinity;
   let sumWindow = 0; // sum of current window
   for (let i = 0; i < n; i++) { // sum of first n numbers aka first window
     max += arr[i];

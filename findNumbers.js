@@ -22,6 +22,36 @@ ex: if input string includes 'x', you know tha the string also has to contain 'i
 uses frequency counter pattern
 then give identifying letters to odd digits -> one ('o' is unique), three ('h' is unique), five ('f' is unique), seven ('s' is unique), nine ('i')
 get frequencies of letters
+
+tracing input: 'owoftnuoer', expect 1,2,4
+        1     2     3     4     5     6     7     8     9     10
+letter: o     w     o     f     t     n     u     o     e     r
+word: one     two  one   five   -     -    four   one   -     r
+count: {1:1}
+              {1:1,2:1}
+                    {1:2,2:1}
+                          {1:2,2:1,5:1}
+                              {1:2,2:1,5:1}
+                                    {1:2,2:1,5:1}
+                                        {1:2,2:1,5:1,4:1}
+                                                {1:3,2:1,5:1,4:1}
+                                                      {1:3,2:1,5:1,4:1}
+{1:3,2:1,5:1,4:1} <- frequencies
+
+count[7] = count[7] – count[6].
+count[7] = 0 - 0 = 0
+
+count[5] = count[5] – count[7].
+count[5] = 1 - 0 = 1
+count[4] = count[4] – count[5].
+count[4] = 1 - 1 = 0
+count[1] = count[1] – (count[2] + count[4] + count[0]).
+count[1] = 3 - (1 + 1 + 0) = 3 -2 = 1
+count[3] = count[3] – count[8].
+count[3] = 0 - 0 = 0
+count[9] = count[9] – (count[5] + count[6] + count[8]).
+count[9] = 0 - (1 + 0 + 0) = -1
+
 */
 
 function findNumbers(str) {
@@ -51,7 +81,7 @@ function findNumbers(str) {
     if (letter === 'h') {
       count[3] ? count[3]++ : count[3] = 1;
     }
-    if (letter === 'v') {
+    if (letter === 'f') {
       count[5] ? count[5]++ : count[5] = 1;
     }
     if (letter === 's') {
@@ -59,10 +89,9 @@ function findNumbers(str) {
     }
     if (letter === 'i') {
       count[9] ? count[9]++ : count[9] = 1;
-//  console.log('count[0]', count[0])
     }
   }
-  console.log('zesxrionezoreo:', count)
+  console.log('fnineenoour:', count)
 }
 
-findNumbers('zesxrionezoreo')
+findNumbers('fnineenoour')
