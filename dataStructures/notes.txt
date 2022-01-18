@@ -1,0 +1,20 @@
+data structure = collection of values, contains the relationships among the values and the functions or operations that
+can be applied to the data
+
+different data structures excel at different things/excel in different situations; some are highly specialized with niche use cases, others like arrays
+are commonly used
+
+ex.
+- graph data structure useful for working with map/location data
+- linked list is useful for situations that require fast inserts/removals at the beginning and end of ordered list of data
+arrays don't perform well in this use case because they have to be reindexed after each insertion/removal, and if data is
+being changed at beginning or end of array  means that indexes for pretty much every element in the array have to be recalculated
+- tree is useful if you're building a web scraper because DOM is represented as a tree, trees are good at representing hierarchical data
+- binary heap useful for situation like finding highest priority scheduled task (priority queue)
+
+singly-linked list = data structure that contains a head (beginning), tail(end), and length property, is an ordered list of data consisting of nodes.
+each node has a value and a pointer referencing/pointing to another node or null (tail node points to null). linked-list different from an array
+because it's values are not indexed. you can't directly access a node between head and tail (no random access). you have to follow the pointers starting at the head
+node to get to the middle ones. insert and deletion can be expensive (don't have good time complexity) in arrays b/c of the need to reindex all values. whereas in
+linked list insert and deletion just involve changing pointers
+so a use case for linked list is when you have a long list, don't need random access, and have to do a lot of insertions/deletions at the beginning and end

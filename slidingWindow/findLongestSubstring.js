@@ -9,12 +9,15 @@ ex
 'longestsubstring' -> 8
 steps:
 create counter variable, initialize to 0
-create empty object to
+
  */
 
 function findLongestSubstring(str) {
-  let longest = 0;
-  for (let i = 0; i < arr.length; i++) {
+  let start = 0;
+  let end = 0;
+  let max = 0;
+
+  while (start < end) {
 
   }
 }
