@@ -73,8 +73,20 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-}
 
+  get(position) { // given a position (head is position 0), traverse list position number of times, return node at that position
+    if (position < 0 || position >= this.length) { // check for invalid positions
+      return null;
+    }
+    let currentNode = this.head;
+    let count = 0;
+    while (count < position) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    return currentNode;
+  }
+}
 const list = new SinglyLinkedList(); // create empty list
 list.push('hello')
 list.push('there')
@@ -86,5 +98,8 @@ list.unshift('hey')
 // console.log(list)
 
 
-// console.log('expect 0:', list.length)
-console.log(list)
+console.log('entire list:', list)
+console.log('length:', list.length)
+console.log('expect value "hello"', list.get(2));
+console.log('expect value "null"', list.get(10));
+console.log('expect value "!"', list.get(5));
