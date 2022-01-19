@@ -86,7 +86,39 @@ class SinglyLinkedList {
     }
     return currentNode;
   }
+  set(position, val) { // change value of the node at position to value
+    const targetNode = this.get(position);
+    if (targetNode) { // if the position is valid
+      targetNode.value = val;
+      return true;
+    }
+    return false;
+  }
+  insert(position, val) { // similar to set, but instead of updating existing node, creates new node and puts it in the list at position
+    if (position < 0 || position > this.length) { // check that position is valid
+      return false;
+    }
+    if (position === this.length) { // if inserting node and beginning or end of list, use unshift or push method
+      return !!this.push(val); // ! (not) coerces its operand to a boolean, we want type coercion but not the negation, so use double negation !!
+    }
+    if (position === 0) {
+      return !!this.unshift(val);
+    }
+    // position is somewhere in middle of list
+    const newNode = new Node(val);
+    const prev = this.get(position - 1);  // traverse list to find the node before position and then change its next property to point at the newly created node,
+    const next = prev.next; // node that used to be at position
+    prev.next = newNode;
+    newNode.next = next;
+    this.length++;
+    return true;
+  }
+  remove(position) { // remove node from specified position
+
+  }
 }
+
+
 const list = new SinglyLinkedList(); // create empty list
 list.push('hello')
 list.push('there')
@@ -97,9 +129,7 @@ list.unshift('hey')
 
 // console.log(list)
 
-
 console.log('entire list:', list)
 console.log('length:', list.length)
-console.log('expect value "hello"', list.get(2));
-console.log('expect value "null"', list.get(10));
-console.log('expect value "!"', list.get(5));
+list.set(2, 'yunyun')
+console.log('expect value "false"', list.set(10, 'yunyun'));
