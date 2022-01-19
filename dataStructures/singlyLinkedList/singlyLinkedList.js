@@ -86,6 +86,7 @@ class SinglyLinkedList {
     }
     return currentNode;
   }
+
   set(position, val) { // change value of the node at position to value
     const targetNode = this.get(position);
     if (targetNode) { // if the position is valid
@@ -94,6 +95,7 @@ class SinglyLinkedList {
     }
     return false;
   }
+
   insert(position, val) { // similar to set, but instead of updating existing node, creates new node and puts it in the list at position
     if (position < 0 || position > this.length) { // check that position is valid
       return false;
@@ -113,8 +115,52 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
-  remove(position) { // remove node from specified position
 
+  remove(position) { // remove node from specified position
+  // like with insert first check if removing first or last node
+    if (position < 0 || position >= this.length) return; // check if position valid
+    if (position === (this.length - 1)) { // remove last node of list
+      const removed = this.pop;
+      return removed;
+    }
+    if (position === 0) { // if removing first node of list
+      const removed = this.shift();
+      return removed;
+    } // remove node from somewhere in middle
+    const prev = this.get(position - 1);
+    const removed = prev.next;
+    prev.next = removed.next;
+    length--;
+    return removed;
+  }
+
+  reverse() { // reverse order of nodes in the linked list in place (with creating a new list)
+    const newTail = this.head; // first swap head and tail of list.
+    const newHead = this.tail;
+    this.tail = newTail;
+    this.head = newHead;
+    let prev = null; // must be initialized to null because, tail will point to this
+    let current = this.tail; // the reversed list is built starting from the tail (which used to be the head), at this point this.tail.next points to the what used to be the node following head
+    let next; // will temporarily store displaced node from original list
+    for (let i = 0; i < this.length; i++) {
+      next = current.next; // saving this reference temporarily so that current.next can be reassigned
+      current.next = prev; // change direction of pointer
+      prev = current;
+      current = next; // move forward one node
+    }
+    return this;
+  }
+
+  printValues() {
+    let current = this.head;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  //   for (let i = 0; i < this.length; i++) {
+  //     console.log(current.value);
+  //     current = current.next;
+  //   }
   }
 }
 
@@ -124,12 +170,20 @@ list.push('hello')
 list.push('there')
 list.push('you')
 list.push('!')
-list.unshift('there')
-list.unshift('hey')
+list.push('how')
+list.push('are')
+list.push('you')
+list.push('?')
+// list.unshift('there')
+// list.unshift('hey')
 
-// console.log(list)
+list.printValues();
+list.reverse();
+list.printValues();
 
-console.log('entire list:', list)
-console.log('length:', list.length)
-list.set(2, 'yunyun')
-console.log('expect value "false"', list.set(10, 'yunyun'));
+
+// console.log('original order', list)
+// console.log('reversed order, expect "? you are how ! ..."', list.reverse())
+// console.log('length:', list.length)
+// list.set(2, 'yunyun')
+// console.log('expect value "false"', list.set(10, 'yunyun'));
