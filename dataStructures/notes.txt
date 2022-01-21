@@ -18,3 +18,20 @@ because it's values are not indexed. you can't directly access a node between he
 node to get to the middle ones. insert and deletion can be expensive (don't have good time complexity) in arrays b/c of the need to reindex all values. whereas in
 linked list insert and deletion just involve changing pointers
 so a use case for linked list is when you have a long list, don't need random access, and have to do a lot of insertions/deletions at the beginning and end
+
+singly linked list time-complexity
+insertion (push to end or unshift to front): O(1)
+  in array: pushing to end of array is O(1) but unshift to front is O(n)
+removal: O(1) = best case aka remove from beginning, O(n) = worstcase aka removing from end, since getting to the node at position n - 1 requires
+iterating from beginning
+searching: O(n), have to check each node from beginning until target value found or end of list reached
+random access: O(n), same as search
+  in arrays: random access is O(1) b/c every item is already indexed
+
+linked list use case over arrays: frequent insertions and deletions required at the beginnings
+
+doubly linked list:
+very similar to singly-linked list but each node points to the previous node as well as the next node
+ - is better at things like removing node from end of list b/c you can follow the previous pointer of the tail node to find second-to-last instead
+ of iternating from head, doing things like traversing from tail to head
+- doubly linked list takes up more memory (has worse space complexity) than singly linked list since a previous pointer has to be stored as well; more flexibility almost always means more memory
