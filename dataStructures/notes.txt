@@ -40,10 +40,18 @@ doubly linked-list: time complexities
 insertion/removal: O(1)
 search, access: O(n), technically O(n/2) b/c we can start traversing from either head or tail but O(n/2) is the same as O(n)
 
-Stack data structure = collection of data, that is last in first out (lifo),
+Stack data structure = collection of data, that is last in first out (lifo)/first in last out
   - like a stack of plates start removing from the top, first plate in the pile is the last one removed
   - use cases: managing function invocations (eg javascript call stack), undo/redo functionality, browser history, implementing other data structures like graphs or trees
 queue data structure = same as stack except first in last out order
 stack and queue are abstract concepts and there are multiple ways to implement them eg linked list, array
  - however, makes more sense and has better performance to implement with linked list (than with array), because stack's first in last out functionality doesn't
  require indices
+stack time complexity: insertion/removal is constant time/ O(1)
+
+Queue data structure = collection of data where you can only add or remove data, data is accessed first in, first out....like people lining up for something...
+use cases: storing list of tasks to be done, background tasks, uploading resources, the print queue for your printer
+enqueue = add something to queue
+dequeue = remove something from queue
+ex implementation of queue with arrays: unshift to front of array, pop from end of array / push to end of array/shift from front; however if using arrays
+can't avoid having to reindex entire list, so better performance with linked list implementation of queue

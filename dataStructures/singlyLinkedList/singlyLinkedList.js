@@ -157,10 +157,6 @@ class SinglyLinkedList {
       console.log(current.value);
       current = current.next;
     }
-  //   for (let i = 0; i < this.length; i++) {
-  //     console.log(current.value);
-  //     current = current.next;
-  //   }
   }
 }
 

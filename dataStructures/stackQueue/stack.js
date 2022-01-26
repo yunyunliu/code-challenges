@@ -5,8 +5,6 @@ class Node {
   }
 }
 
-
-
 class Stack {
   constructor() {
     this.size = 0;
@@ -63,6 +61,9 @@ stack.push('second');
 stack.push('third');
 
 stack.print()
+console.log(stack.pop())
+console.log(stack.pop())
+console.log(stack.pop())
 console.log(stack.pop())
 console.log(stack.size)
 stack.print()
