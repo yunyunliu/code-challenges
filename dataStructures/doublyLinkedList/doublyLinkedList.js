@@ -59,6 +59,42 @@ class DoublyLinkedList {
     this.length--;
     return removed;
   }
+
+  unshift(val) {
+    const newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  get(position) { // access node of doubly linked list at given position; in doubly-linked list can start from head or tail depending on what position it given; is if looking for value near end of list, can tail and following previous pointers
+    if (position < 0 || position >= this.length) return null;
+    let current;
+    let count;
+    if (position <= this.length / 2) {
+      current = this.head; // if position is in first half of the list, start traversing from head
+      count = 0;
+      while (count !== position) {
+        count++;
+        current = current.next;
+      }
+    } else {
+      current = this.tail; // otherwise if position is closer to end of the list, start traversing backwards from tail
+      count = this.length - 1; // position like an array's index
+      while (count !== position) {
+        count--;
+        current = current.prev;
+      }
+    }
+    return current;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -66,4 +102,9 @@ list.push('first');
 list.push('second');
 list.push('third');
 
-console.log(list);
+// console.log(list);
+// console.log(list.shift())
+list.unshift('zero-th')
+list.push('fourth');
+list.push('fifth');
+console.log(list.get(0))
