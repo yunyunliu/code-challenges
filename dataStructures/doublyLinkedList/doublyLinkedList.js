@@ -45,7 +45,7 @@ class DoublyLinkedList {
   }
 
   shift() { // remove node at beginning of doubly linked list and return it
-    if (!this.head) return; // of list is empty, cant't remove anything from it
+    if (!this.head) return; // if list is empty, cant't remove anything from it
     const removed = this.head;
     if (this.length === 1) {
       this.head = null;
@@ -95,6 +95,58 @@ class DoublyLinkedList {
     }
     return current;
   }
+
+  set(position, val) { // update value of node in position with val
+    const target = this.get(position);
+    if (!target) return false; // check if a node exists at position
+    // if it does exist, update its value
+    target.value = val;
+    return true;
+  }
+
+  insert(position, val) {
+    if (position < 0 || position > this.length) return false;
+    if (position === 0) {
+      this.unshift(val); // or return !!this.unshift(val) to coerce the tree that unshift returns into a boolean
+    } else if (position === this.length) {
+      this.push(val)
+    } else {
+      const nodeBefore = this.get(position - 1);
+      const inserted = new Node(val);
+      const nodeAfter = nodeBefore.next;
+      nodeBefore.next = inserted;
+      inserted.next = nodeAfter;
+      inserted.prev = nodeBefore;
+      nodeAfter.prev = inserted;
+    }
+    this.length++;
+    return true;
+  }
+
+  remove(position) { // remove node at position and return it
+    if (position < 0 || position >= this.length) return; // check for invalid index
+    if (position === 0) return this.shift(); // edge cases
+    if (position === this.length - 1) return this.pop();
+    const removed = this.get(position);
+    const before = removed.prev;
+    const after = removed.next;
+    before.next = after; // connect node before removed node to node after removed node
+    after.prev = before; // and vice versa
+    removed.next = null; // remove all references to other nodes from removed node before returning
+    removed.prev = null;
+    this.length--;
+    return removed;
+  }
+
+  printValues() {
+    let count = 0;
+    let current = this.head;
+    while (count < this.length) {
+      console.log('value:', current.value, 'position:', count);
+      current = current.next;
+      count++;
+    }
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -107,4 +159,6 @@ list.push('third');
 list.unshift('zero-th')
 list.push('fourth');
 list.push('fifth');
-console.log(list.get(0))
+console.log('removed:', list.remove(list.length - 1))
+// console.log(list.get(4))
+list.printValues()

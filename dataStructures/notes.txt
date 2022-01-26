@@ -35,3 +35,15 @@ very similar to singly-linked list but each node points to the previous node as 
  - is better at things like removing node from end of list b/c you can follow the previous pointer of the tail node to find second-to-last instead
  of iternating from head, doing things like traversing from tail to head
 - doubly linked list takes up more memory (has worse space complexity) than singly linked list since a previous pointer has to be stored as well; more flexibility almost always means more memory
+
+doubly linked-list: time complexities
+insertion/removal: O(1)
+search, access: O(n), technically O(n/2) b/c we can start traversing from either head or tail but O(n/2) is the same as O(n)
+
+Stack data structure = collection of data, that is last in first out (lifo),
+  - like a stack of plates start removing from the top, first plate in the pile is the last one removed
+  - use cases: managing function invocations (eg javascript call stack), undo/redo functionality, browser history, implementing other data structures like graphs or trees
+queue data structure = same as stack except first in last out order
+stack and queue are abstract concepts and there are multiple ways to implement them eg linked list, array
+ - however, makes more sense and has better performance to implement with linked list (than with array), because stack's first in last out functionality doesn't
+ require indices
