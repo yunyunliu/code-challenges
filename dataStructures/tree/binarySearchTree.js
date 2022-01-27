@@ -11,6 +11,22 @@ class BinarySearchTree {
     this.root = null;
   }
 
+  find(val) { // finds node with value val and returns it or returns false;
+    if (!this.root) return;
+    if (this.root.value === val) return this.root;
+    let current = this.root;
+    while(true) {
+      if (val === current.value) return current;
+      if (val < current.value) {
+        if (!current.left) return false;
+        current = current.left;
+      } else {
+        if (!current.right) return false;
+        current = current.right;
+      }
+    }
+  }
+
   insert(val) {
     const newNode = new Node(val);
     if (!this.root) { // if tree is empty, then inserted value is automatically the root
@@ -73,4 +89,4 @@ bst.insertRecursive(7)
 bst.insertRecursive(13)
 bst.insertRecursive(6)
 bst.insertRecursive(16)
-console.log(bst.insertRecursive(11))
+console.log(bst.find(13))

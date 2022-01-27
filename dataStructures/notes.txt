@@ -1,3 +1,20 @@
+tree (any kind of tree) traversal
+traversal = visit every node in the tree once
+
+breadth-first = search all siblings because going down a level in the tree
+depth-first = search all descendents (until a leaf is reached) before moving on the a sibling
+3 kinds of depth-first search
+  - in order
+  - pre-order
+  - post-order
+
+
+binary search tree, find/insert: best case, average time complexity 0(nlogn) aka each time number of nodes in binary search tree doubles,
+ number of operations needed to insert/find increases by 1
+this isn't garaunteed for all binary trees, ex O(n) because a tree can still technically be a binary search tree but it's configuration
+is not very conducive to find/insert, usually because the value chosen for the root is not very in the middle of the range of
+values in the tree and tree is very lopsided to right and left -> balanced vs unbalanced binary trees,
+
 tree data structure - data structure that consists of nodes in hierarchical parent/child relationship (instead linear relationship like linked list)
  - each node in a tree points to one or more other nodes
  - all nodes descend from a single root node
