@@ -1,3 +1,41 @@
+tree data structure - data structure that consists of nodes in hierarchical parent/child relationship (instead linear relationship like linked list)
+ - each node in a tree points to one or more other nodes
+ - all nodes descend from a single root node
+ trees are nonlinear = there's more than 1 path through a tree; it is branching; whereas lists are linear, there's one path through it
+  nodes in a tree can only point to child nodes ei, they can't point back to their parent, or to sibling nodes, this is how  a tree is different from a graph
+edge = connection between 2 nodes in tree
+sibling = nodes that have the same parent
+leaf = node with no children
+
+use cases for tree data structure
+- HTML/DOM, network routing, abstract syntax tree, ai things like decision trees, filesystem of your os, JSON is a tree/can be represented as a tree
+
+kinds of trees
+- binary tree, (tree where each node can have maximum of 2 child nodes)
+  binary search tree = binary tree that holds data in a particular order, used to compare data. a binary tree where all nodes to left are less then parent and all
+ nodes to right are greater than parent
+ the way that data is ordered in binary search tree makes it easy/fast to search or insert in a specific place since each time you choose between nodes, you are eliminating
+ half of the possible choices
+
+
+Stack data structure = collection of data, that is last in first out (lifo)/first in last out
+  - like a stack of plates start removing from the top, first plate in the pile is the last one removed
+  - use cases: managing function invocations (eg javascript call stack), undo/redo functionality, browser history, implementing other data structures like graphs or trees
+queue data structure = same as stack except first in last out order
+stack and queue are abstract concepts and there are multiple ways to implement them eg linked list, array
+ - however, makes more sense and has better performance to implement with linked list (than with array), because stack's first in last out functionality doesn't
+ require indices
+stack time complexity: insertion/removal is constant time/ O(1)
+
+Queue data structure = collection of data where you can only add or remove data, data is accessed first in, first out....like people lining up for something...
+use cases: storing list of tasks to be done, background tasks, uploading resources, the print queue for your printer
+enqueue = add something to queue
+dequeue = remove something from queue
+ex implementation of queue with arrays: unshift to front of array, pop from end of array / push to end of array/shift from front; however if using arrays
+can't avoid having to reindex entire list, so better performance with linked list implementation of queue
+queue time complexity: insertion/removal is constant time/ O(1)
+
+
 data structure = collection of values, contains the relationships among the values and the functions or operations that
 can be applied to the data
 
@@ -39,19 +77,3 @@ very similar to singly-linked list but each node points to the previous node as 
 doubly linked-list: time complexities
 insertion/removal: O(1)
 search, access: O(n), technically O(n/2) b/c we can start traversing from either head or tail but O(n/2) is the same as O(n)
-
-Stack data structure = collection of data, that is last in first out (lifo)/first in last out
-  - like a stack of plates start removing from the top, first plate in the pile is the last one removed
-  - use cases: managing function invocations (eg javascript call stack), undo/redo functionality, browser history, implementing other data structures like graphs or trees
-queue data structure = same as stack except first in last out order
-stack and queue are abstract concepts and there are multiple ways to implement them eg linked list, array
- - however, makes more sense and has better performance to implement with linked list (than with array), because stack's first in last out functionality doesn't
- require indices
-stack time complexity: insertion/removal is constant time/ O(1)
-
-Queue data structure = collection of data where you can only add or remove data, data is accessed first in, first out....like people lining up for something...
-use cases: storing list of tasks to be done, background tasks, uploading resources, the print queue for your printer
-enqueue = add something to queue
-dequeue = remove something from queue
-ex implementation of queue with arrays: unshift to front of array, pop from end of array / push to end of array/shift from front; however if using arrays
-can't avoid having to reindex entire list, so better performance with linked list implementation of queue

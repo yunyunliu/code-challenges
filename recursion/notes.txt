@@ -1,0 +1,19 @@
+recursive solutions (alternative to iterative solutions)
+recursion = a process/function that calls itself
+use cases: json.parse, json.stringify are recursive functions or can be written recursively, dom traversal (trees are traversal), algorithms
+involving more complicated data structures, sometimes a recursive function is easier to understand
+
+call stack - manages what happens when functions are invoked
+
+ex recursive solution to finding factorial
+
+function factorial(num) {
+  if (num === 1) return 1; // base case that triggers collapse of call stack
+  return num * factorial(num - 1); // call itself but with a smaller input
+}
+
+pure recursion vs recursion with helper function
+
+helper function pattern useful when you need to collect and store values (eg getting all the odd numbers in an array), basically when you need a
+variable that persists between recursive function calls
+instead of just calculating one value to return at the end (eg summing numbers in an array)
